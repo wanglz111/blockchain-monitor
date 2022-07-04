@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xjtlu.monitor.mapper.ChainMapper">
+
+    <resultMap id="BaseResultMap" type="com.xjtlu.monitor.pojo.Chain">
+            <id property="id" column="id" jdbcType="OTHER"/>
+            <result property="name" column="name" jdbcType="VARCHAR"/>
+            <result property="url" column="url" jdbcType="VARCHAR"/>
+            <result property="apiToken" column="api_token" jdbcType="VARCHAR"/>
+            <result property="debankLink" column="debank_link" jdbcType="VARCHAR"/>
+            <result property="hashLink" column="hash_link" jdbcType="VARCHAR"/>
+            <result property="transferLink" column="transfer_link" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,name,url,
+        api_token,debank_link,hash_link,
+        transfer_link
+    </sql>
+</mapper>

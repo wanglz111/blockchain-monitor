@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xjtlu.monitor.mapper.ApiScanResultMapper">
+
+    <resultMap id="BaseResultMap" type="com.xjtlu.monitor.pojo.ApiScanResult">
+            <id property="id" column="id" jdbcType="OTHER"/>
+            <result property="blockNumber" column="block_number" jdbcType="OTHER"/>
+            <result property="timeStamp" column="time_stamp" jdbcType="OTHER"/>
+            <result property="hash" column="hash" jdbcType="VARCHAR"/>
+            <result property="fromAddress" column="from_address" jdbcType="VARCHAR"/>
+            <result property="toAddress" column="to_address" jdbcType="VARCHAR"/>
+            <result property="value" column="value" jdbcType="OTHER"/>
+            <result property="input" column="input" jdbcType="VARCHAR"/>
+            <result property="chainId" column="chain_id" jdbcType="OTHER"/>
+            <result property="chainName" column="chain_name" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,block_number,time_stamp,
+        hash,from_address,to_address,
+        value,input,chain_id,
+        chain_name
+    </sql>
+</mapper>
