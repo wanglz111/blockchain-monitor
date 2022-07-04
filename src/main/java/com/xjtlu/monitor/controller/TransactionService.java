@@ -36,6 +36,9 @@ public class TransactionService {
     @Autowired
     private ContractAddressService contractAddressService;
 
+    @Autowired
+    private SendMessageService sendMessageService;
+
     public void doMonitor() {
         HashMap<String, String> aliasMap = new HashMap<>();
         List<Method> methods = methodService.list();
@@ -84,6 +87,7 @@ public class TransactionService {
                             }
                             apiScanResultService.save(apiScanResult);
                             sendTGMessage(apiScanResult, aliasMap);
+                            break;
                         }
                     }
                 } catch (IOException e) {
@@ -128,6 +132,33 @@ public class TransactionService {
         String time = sdf.format(new Date((Long) apiScanResult.getTimeStamp() * 1000L));
         apiScanResult.setTimeStamp(time);
 
-        log.info("sendTGMessage: " + apiScanResult.toString());
+//        "操作方:{send}\n\n 操作:{recive}。\n\n 价值：{value} AVAX。\n\n [debank]({link})\n [区块transfer]({transfer}) \n [区块hash]({hash_link}) \n\n 时间：{time}"
+        StringBuilder sb = new StringBuilder()
+                .append("操作方:")
+                .append(apiScanResult.getFromAddress())
+                .append("\\n\\n")
+                .append("操作:")
+                .append(apiScanResult.getToAddress())
+                .append("\\n\\n")
+                .append("操作内容")
+                .append(apiScanResult.getInput());
+//                .append("\n")
+//                .append("价值: ")
+//                .append(apiScanResult.getValue())
+//                .append(" ")
+//                .append(apiScanResult.getChainName())
+//                .append("\n")
+//                .append("[区块hash](")
+//                        .append(apiScanResult.getHash())
+//                        .append(")\n")
+//                .append("时间: ")
+//                        .append(apiScanResult.getTimeStamp())
+//                        .append("\n");
+        String message = sb.toString();
+
+
+
+
+        sendMessageService.sendMessage(message);
     }
 }

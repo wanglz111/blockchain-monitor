@@ -15,4 +15,6 @@ public class ApiToken {
     public static final long GROUP_CHAT_ID = -1001729029482L;
     public static final String TG_BOT_TOKEN = "5474020930:AAGr8KZ-12MvoGYUb-MLr0FvVx6GyObYyPk";
 
+    public static final String TELEGRAM_API = "https://api.telegram.org/bot";
+
 }

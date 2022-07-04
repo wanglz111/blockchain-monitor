@@ -6,6 +6,7 @@ import com.xjtlu.monitor.pojo.Chain;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -13,6 +14,7 @@ import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.util.HashMap;
 
+@Service
 public class RequestService {
 
     public static String hostname = "localhost";
